@@ -54,3 +54,6 @@ n/a
 
 = 0.1 =
 test release
+
+= 0.2 =
+fix $wpdb
