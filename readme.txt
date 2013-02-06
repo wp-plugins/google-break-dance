@@ -14,11 +14,13 @@ Redirect Visitor dari Google image ke langsung halaman Post.
 
 Saat visitor klik link "Lihat Gambar Asli" di halaman Google search image maka URLnya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
 sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling atas file <b>.htaccess</b>  : <br /><br />
+
+<b>*** Penting: untuk v 0.3 harap edit lagi .htaccess untuk menghilangkan error ketika tidak ada referer </b>
+
 <strong>
 RewriteEngine On  <br />
 RewriteBase /    <br />
 RewriteCond %{REQUEST_URI} wp-content/uploads/.\*\\.(gif|jpg|jpeg|png|ico)$ [NC]  <br />
-RewriteCond %{HTTP_REFERER} !^$ <br />
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]   <br />
 RewriteRule ^(.*)$ /get_image?$1 [R=302,L]    <br /><br />
 </strong>
@@ -29,11 +31,11 @@ RewriteRule ^(.*)$ /get_image?$1 [R=302,L]    <br /><br />
 1. Upload plugin ini`/wp-content/plugins/` directory
 2. Activate
 3. masukan baris text berikut di paling atas file <b>.htaccess</b> <br /><br />
+<b>*** Penting: untuk v 0.3 harap edit lagi .htaccess untuk menghilangkan error ketika tidak ada referer </b>
 <strong>
 RewriteEngine On           <br />
 RewriteBase /        <br />
 RewriteCond %{REQUEST_URI} wp-content/uploads/.\*\\.(gif|jpg|jpeg|png|ico)$ [NC]   <br />
-RewriteCond %{HTTP_REFERER} !^$ <br />
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]  <br />
 RewriteRule ^(.*)$ /get_image?$1 [R=302,L]       <br /><br />
 </strong>
@@ -57,3 +59,6 @@ test release
 
 = 0.2 =
 fix $wpdb
+
+= 0.3 =
+Fix $wpdb Compability

@@ -3,7 +3,7 @@
 Plugin Name: Google Break Dance
 Plugin URI: http://wordpress.org/extend/plugins/google-break-dance/
 Description: Redirect Visitor dari Google image ke langsung halaman Post, jangan lupa edit file <b>.htaccess</b> sebelum menggunakan Plugin ini. Oh iya klo berguna, kapan2 jgn lupa cendolnya buat <strong><a href="http://www.cekpr.com">cekPR.com</a></strong> heheh...
-Version: 0.2
+Version: 0.3
 Author: ewwink
 Author URI: http://www.cekpr.com/
 License: GPL2
@@ -13,7 +13,9 @@ function cekpr_image_id($image_url) {
     global $wpdb;
     $prefix = $wpdb->prefix;
     $attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts WHERE guid=%s;", $image_url));
-    //$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='" . $image_url . "';"));
+    if(!$attachment){
+        $attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='" . $image_url . "';"));
+    }
     return $attachment[0];
 }
 function Google_Image_Dance(){
