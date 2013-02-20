@@ -20,7 +20,7 @@ sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling
 <strong>
 RewriteEngine On  <br />
 RewriteBase /    <br />
-RewriteCond %{REQUEST_URI} wp-content/uploads/.\*\\.(gif|jpg|jpeg|png|ico)$ [NC]  <br />
+RewriteCond %{REQUEST_URI} wp-content/uploads/.\*\\.(gif|jpg|jpeg|png)$ [NC]  <br />
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]   <br />
 RewriteRule ^(.*)$ /get_image?$1 [R=302,L]    <br /><br />
 </strong>
@@ -35,7 +35,7 @@ RewriteRule ^(.*)$ /get_image?$1 [R=302,L]    <br /><br />
 <strong>
 RewriteEngine On           <br />
 RewriteBase /        <br />
-RewriteCond %{REQUEST_URI} wp-content/uploads/.\*\\.(gif|jpg|jpeg|png|ico)$ [NC]   <br />
+RewriteCond %{REQUEST_URI} wp-content/uploads/.\*\\.(gif|jpg|jpeg|png)$ [NC]   <br />
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]  <br />
 RewriteRule ^(.*)$ /get_image?$1 [R=302,L]       <br /><br />
 </strong>
