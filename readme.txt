@@ -23,7 +23,7 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_USER_AGENT} !.*bot.* [NC]
-RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.*$ [NC]
 RewriteRule ^(.*)$ /get_image?$1 [R=302,L]
 
 # BEGIN WordPress
@@ -51,7 +51,7 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_USER_AGENT} !.*bot.* [NC]
-RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.*$ [NC]
 RewriteRule ^(.*)$ /get_image?$1 [R=302,L]
 
 # BEGIN WordPress
