@@ -11,35 +11,76 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Redirect Visitor dari Google images ke langsung halaman Post dengan Plugin Google Break Dance.
 
 == Description ==
+Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunitas Publisher Indonesia</a> dan seluruh rakyat indonesia hahaha....
 
 Saat visitor klik link "Lihat Gambar Asli" di halaman Google search image maka URLnya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
 sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling atas file <b>.htaccess</b>  : <br /><br />
 
-<b>*** Penting: untuk v 0.3 harap edit lagi .htaccess untuk menghilangkan error ketika tidak ada referer </b>
+= *** Penting: untuk v 0.4 edit lagi .htaccess menjadi seperti dibawah supaya BOT tidak diredirect ke post dan menghilangkan error ketika tidak ada referer =
 
-<strong>
-RewriteEngine On  <br />
-RewriteBase /    <br />
-RewriteCond %{REQUEST_URI} wp-content/uploads/.\*\\.(gif|jpg|jpeg|png)$ [NC]  <br />
-RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]   <br />
-RewriteRule ^(.*)$ /get_image?$1 [R=302,L]    <br /><br />
-</strong>
+<code>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
+RewriteCond %{HTTP_USER_AGENT} !.*bot.* [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]
+RewriteRule ^(.*)$ /get_image?$1 [R=302,L]
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+</code>
+
 *<i>ganti cekpr.com dengan nama domain ente</i>
 == Installation ==
 
 
-1. Upload plugin ini`/wp-content/plugins/` directory
-2. Activate
-3. masukan baris text berikut di paling atas file <b>.htaccess</b> <br /><br />
-<b>*** Penting: untuk v 0.3 harap edit lagi .htaccess untuk menghilangkan error ketika tidak ada referer </b>
-<strong>
-RewriteEngine On           <br />
-RewriteBase /        <br />
-RewriteCond %{REQUEST_URI} wp-content/uploads/.\*\\.(gif|jpg|jpeg|png)$ [NC]   <br />
-RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]  <br />
-RewriteRule ^(.*)$ /get_image?$1 [R=302,L]       <br /><br />
-</strong>
+1. Upload plugin ini`/wp-content/plugins/` directory, atau
+2. Cari dan install di Dashboarf => Plugins => Add new
+3. Activate
+4. masukan baris text berikut ke <b>.htaccess</b> melalui ftp atau dengan menggunakan plugin htaccess editor <br />
+<code>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
+RewriteCond %{HTTP_USER_AGENT} !.*bot.* [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.\*$ [NC]
+RewriteRule ^(.*)$ /get_image?$1 [R=302,L]
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+</code>
+
 *<i>ganti cekpr.com dengan nama domain ente</i>
+
+= Perubahan versi Plugin =
+
+= 0.4 =
+perubahan pada .htaccess supaya jangan redirect Bot ke post, tambahkan <br  />
+<strong>RewriteCond %{HTTP_USER_AGENT} !.\*bot.\* [NC]</strong>
+= 0.3 =
+Fix $wpdb Compability
+= 0.2 =
+fix $wpdb
+= 0.1 =
+test release
+
+
 == Frequently Asked Questions ==
 
 = Bagaimana Cara mengetahui plugin ini berfungsi atau tidak =
@@ -50,15 +91,16 @@ di Google search ketik "<b>site:domain-punya-ente.com</b>" (tanpa tanda kutip) t
 
 nda ada
 == Upgrade Notice ==
-n/a
+ganti semua filenya dengan yg terbaru.
 
 == Changelog ==
 
-= 0.1 =
-test release
-
-= 0.2 =
-fix $wpdb
-
+= 0.4 =
+perubahan pada .htaccess supaya jangan redirect Bot Bot ke post, tambahkan <br  />
+<strong>RewriteCond %{HTTP_USER_AGENT} !.\*bot.\* [NC]</strong>
 = 0.3 =
 Fix $wpdb Compability
+= 0.2 =
+fix $wpdb
+= 0.1 =
+test release
