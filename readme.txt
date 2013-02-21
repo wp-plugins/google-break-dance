@@ -15,14 +15,20 @@ Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunita
 
 Saat visitor klik link "Lihat Gambar Asli" di halaman Google search image maka URLnya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
 sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling atas file <b>.htaccess</b>  : <br /><br />
+= v 0.5 =
+- fix no referer, no redirect
+- tidak redirect thumbnail dihalaman google search
+- fix redirect untuk gambar yg non full size seperti, http://blog/uploads/image-100x100.png
 
-= *** Penting: untuk v 0.4 edit lagi .htaccess menjadi seperti dibawah supaya BOT tidak diredirect ke post dan menghilangkan error ketika tidak ada referer =
+= *** Penting: untuk v 0.5 edit lagi .htaccess menjadi seperti dibawah =
 
 <code>
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_USER_AGENT} !.*bot.* [NC]
+RewriteCond %{HTTP_REFERER} !^$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/blank.html$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.*$ [NC]
 RewriteRule ^(.*)$ /get_image?$1 [R=302,L]
 
@@ -51,6 +57,8 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_USER_AGENT} !.*bot.* [NC]
+RewriteCond %{HTTP_REFERER} !^$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/blank.html$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.*$ [NC]
 RewriteRule ^(.*)$ /get_image?$1 [R=302,L]
 
@@ -68,18 +76,6 @@ RewriteRule . /index.php [L]
 
 *<i>ganti cekpr.com dengan nama domain ente</i>
 
-= Perubahan versi Plugin =
-
-= 0.4 =
-perubahan pada .htaccess supaya jangan redirect Bot ke post, tambahkan <br  />
-<strong>RewriteCond %{HTTP_USER_AGENT} !.\*bot.\* [NC]</strong>
-= 0.3 =
-Fix $wpdb Compability
-= 0.2 =
-fix $wpdb
-= 0.1 =
-test release
-
 
 == Frequently Asked Questions ==
 
@@ -94,7 +90,10 @@ nda ada
 ganti semua filenya dengan yg terbaru.
 
 == Changelog ==
-
+= 0.5 =
+- fix no referer, no redirect
+- tidak redirect thumbnail dihalaman google search
+- fix redirect untuk gambar yg non full size seperti, http://blog/uploads/image-100x100.png
 = 0.4 =
 perubahan pada .htaccess supaya jangan redirect Bot Bot ke post, tambahkan <br  />
 <strong>RewriteCond %{HTTP_USER_AGENT} !.\*bot.\* [NC]</strong>
