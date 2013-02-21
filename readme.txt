@@ -16,7 +16,7 @@ Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunita
 Saat visitor klik link "Lihat Gambar Asli" di halaman Google search image maka URLnya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
 sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling atas file <b>.htaccess</b>  : <br /><br />
 = v 0.5 =
-- fix no referer, no redirect
+- fix no referer, no redirect.
 - tidak redirect thumbnail dihalaman google search
 - fix redirect untuk gambar yg non full size seperti, http://blog/uploads/image-100x100.png
 
