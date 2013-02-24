@@ -90,6 +90,8 @@ nda ada
 ganti semua filenya dengan yg terbaru.
 
 == Changelog ==
+= 0.6 =
+fix header already sent
 = 0.5 =
 - fix no referer, no redirect
 - tidak redirect thumbnail dihalaman google search
