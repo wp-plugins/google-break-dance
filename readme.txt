@@ -15,6 +15,9 @@ Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunita
 
 Saat visitor klik link "Lihat Gambar Asli" di halaman Google search image maka URLnya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
 sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling atas file <b>.htaccess</b>  : <br /><br />
+= v 0.7 =
+- ditambahkan JS Google Frame Breaker karena Gogle eropa masih menggunakan Layout lama.
+- fix headers already sent, sori ada yg lupa kehapus hehe...
 = v 0.6 =
 - fix headers already sent
 = v 0.5 =
@@ -22,13 +25,13 @@ sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling
 - tidak redirect thumbnail dihalaman google search
 - fix redirect untuk gambar yg non full size seperti, http://blog/uploads/image-100x100.png
 
-= *** Penting: untuk v 0.5 edit lagi .htaccess menjadi seperti dibawah =
+= *** Penting: untuk v 0.7 edit lagi .htaccess menjadi seperti dibawah =
 
 <code>
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
-RewriteCond %{HTTP_USER_AGENT} !.*bot.* [NC]
+RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
 RewriteCond %{HTTP_REFERER} !^$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/blank.html$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.*$ [NC]
@@ -46,7 +49,10 @@ RewriteRule . /index.php [L]
 # END WordPress
 </code>
 
-*<i>ganti cekpr.com dengan nama domain ente</i>
+= Instruksi singkat =
+- Ganti <strong>cekpr.com</strong> dengan nama domain ente
+- Klo ingin menambahkan supaya bot lain tidak ingin diredirect karena default hanya yg mengandung kata "bot" (Yahoo Bot, Bing Bot, dll...) dan yahoo Slurp edit baris <strong>!(.\*bot.\*|slurp)</strong> menjadi seperti <strong>!(.\*bot.\*|slurp|kamu|ente|maneh|anda|lu|sia)</strong>
+- Untuk merubah .htaccess melalui Dashboard pake plugin WP Htaccess Editor/
 == Installation ==
 
 
@@ -58,7 +64,7 @@ RewriteRule . /index.php [L]
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
-RewriteCond %{HTTP_USER_AGENT} !.*bot.* [NC]
+RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
 RewriteCond %{HTTP_REFERER} !^$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/blank.html$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.*$ [NC]
@@ -76,7 +82,8 @@ RewriteRule . /index.php [L]
 # END WordPress
 </code>
 
-*<i>ganti cekpr.com dengan nama domain ente</i>
+- ganti <strong>cekpr.com<strong> dengan nama domain ente
+
 
 
 == Frequently Asked Questions ==
@@ -92,6 +99,9 @@ nda ada
 ganti semua filenya dengan yg terbaru.
 
 == Changelog ==
+= 0.7 =
+- ditambahkan Google Frame Breaker karena Gogle eropa masih menggunakan Layout lama
+- fix header already sent, ada yg lupa kehapus saat proses debug hehe...
 = 0.6 =
 fix header already sent
 = 0.5 =
