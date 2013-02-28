@@ -51,7 +51,7 @@ RewriteRule . /index.php [L]
 
 = Instruksi singkat =
 - Ganti <strong>cekpr.com</strong> dengan nama domain ente
-- Klo ingin menambahkan supaya bot lain tidak ingin diredirect karena default hanya yg mengandung kata "bot" (Googlebot, Bingbot, dll...) dan yahoo Slurp edit baris <strong>!(.\*bot.\*|slurp)</strong> menjadi seperti <strong>!(.\*bot.\*|slurp|kamu|ente|maneh|anda|lu|sia)</strong>
+- Klo ingin menambahkan lebih banyak bot yg tidak ingin diredirect ke post atau supaya image di index karena default hanya yg mengandung kata "bot" (Googlebot, Bingbot, dll...) dan yahoo Slurp edit baris <strong>!(.\*bot.\*|slurp)</strong> menjadi seperti <strong>!(.\*bot.\*|slurp|kamu|ente|maneh|anda|lu|sia)</strong>
 - Untuk merubah .htaccess melalui Dashboard pake plugin WP Htaccess Editor/
 == Installation ==
 
