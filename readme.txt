@@ -66,6 +66,7 @@ RewriteRule ^(wp-content.*)$ /get_image?$1 [R=302,L]
 - Klo ingin menambahkan lebih banyak bot yg tidak ingin diredirect ke post atau supaya image di index karena default hanya yg mengandung kata "bot" (Googlebot, Bingbot, dll...) dan yahoo Slurp edit baris <strong>!(.\*bot.\*|slurp)</strong> menjadi seperti <strong>!(.\*bot.\*|slurp|kamu|ente|maneh|anda|lu|sia)</strong>
 - Untuk merubah .htaccess melalui Dashboard bisa pake pake plugin GBD Htaccess Editor
 
+
 == Installation ==
 
 
@@ -106,11 +107,9 @@ RewriteRule . /index.php [L]
 di Google search ketik "<b>site:domain-punya-ente.com</b>" (tanpa tanda kutip) trus klik gambar dan klik lagi "Lihat Gamabar Asli" dan klo di <b>Redirect</b> ke halaman Post maka plugin ini berfungsi.
 
 == Screenshots ==
-/assets/screenshot-1.png
-<br >* Tampilan di Google Image Search
+1. Tampilan di Google Image Search
 
-/assets/screenshot-2.png
-<br >* tampilan GBD .htaccess Editor
+2. tampilan GBD .htaccess Editor
 
 == Upgrade Notice ==
 ganti semua filenya dengan yg terbaru.
