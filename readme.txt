@@ -15,28 +15,26 @@ Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunita
 
 Saat visitor klik link "Lihat Gambar Asli" di halaman Google search image maka URLnya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
 sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling atas file <b>.htaccess</b>  : <br /><br />
-= v 0.7 =
-- ditambahkan JS Google Frame Breaker karena Gogle eropa masih menggunakan Layout lama.
-- fix headers already sent, sori ada yg lupa kehapus hehe...
-= v 0.6 =
-- fix headers already sent
-= v 0.5 =
-- fix no referer, no redirect.
-- tidak redirect thumbnail dihalaman google search
-- fix redirect untuk gambar yg non full size seperti, http://blog/uploads/image-100x100.png
+= FITUR =
+- Redirect otomatis gambar ukuran full, medium, smalll ke postingan
+- Menambahkan Watermark dihalaman google image search
+- Frame Breaker untuk Google Image Eropa
+- GBD htaccess Editor
+- Tidak Redirect image ke post jika yg akses adalah BOT (Googlebot, Bingbot, slurp, dll..) sehingga gambar bisa di index oleh Bot.
+- Tidak redirect jika no Referer
 
-= *** Penting: untuk v 0.7 edit lagi .htaccess menjadi seperti dibawah =
+= Perubahan terakhir =
+= 0.8 =
+- fitur baru, watermark dihalaman google image search
+- Auto edit htaccess saat diaktifkan
+- ditambahkan GBD htaccess Editor
+- fix browser cache
 
+
+
+= Instruksi singkat =
+- Tidak perlu lagi mengedit file .htaccess karena sudah otomatis akan tetapi jika sudah pernah edit .htaccess sebelumnya maka pastikan harus seperti dibawah
 <code>
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
-RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
-RewriteCond %{HTTP_REFERER} !^$ [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/blank.html$ [NC]
-RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.*$ [NC]
-RewriteRule ^(.*)$ /get_image?$1 [R=302,L]
-
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
@@ -47,12 +45,35 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
+
+# BEGIN Google Break Dance
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]
+RewriteCond %{HTTP_REFERER} ^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/blank.html$ [NC]
+RewriteCond %{HTTP_REFERER} !^$ [NC]
+RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
+RewriteRule ^(wp-content.*)$ /gbd_watermark?$1 [R=302,L]
+
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png|ico)$ [NC]
+RewriteCond %{HTTP_REFERER} !^$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.nama-domain-ente.com/.*$ [NC]
+RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
+RewriteRule ^(wp-content.*)$ /get_image?$1 [R=302,L]
+# END Google Break Dance
 </code>
 
-= Instruksi singkat =
-- Ganti <strong>cekpr.com</strong> dengan nama domain ente
 - Klo ingin menambahkan lebih banyak bot yg tidak ingin diredirect ke post atau supaya image di index karena default hanya yg mengandung kata "bot" (Googlebot, Bingbot, dll...) dan yahoo Slurp edit baris <strong>!(.\*bot.\*|slurp)</strong> menjadi seperti <strong>!(.\*bot.\*|slurp|kamu|ente|maneh|anda|lu|sia)</strong>
-- Untuk merubah .htaccess melalui Dashboard pake plugin WP Htaccess Editor/
+- Untuk merubah .htaccess melalui Dashboard bisa pake pake plugin GBD Htaccess Editor
+
+= SS =
+
+/assets/screenshot-1.png
+<br >* Tampilan di Google Image Search
+
+/assets/screenshot-2.png
+<br >* tampilan GBD .htaccess Editor
+
 == Installation ==
 
 
@@ -93,12 +114,21 @@ RewriteRule . /index.php [L]
 di Google search ketik "<b>site:domain-punya-ente.com</b>" (tanpa tanda kutip) trus klik gambar dan klik lagi "Lihat Gamabar Asli" dan klo di <b>Redirect</b> ke halaman Post maka plugin ini berfungsi.
 
 == Screenshots ==
+/assets/screenshot-1.png
+<br >* Tampilan di Google Image Search
 
-nda ada
+/assets/screenshot-2.png
+<br >* tampilan GBD .htaccess Editor
+
 == Upgrade Notice ==
 ganti semua filenya dengan yg terbaru.
 
 == Changelog ==
+= 0.8 =
+- fitur baru, watermark dihalaman google image search
+- Auto edit htaccess saat diaktifkan
+- ditambahkan GBD .htaccess Editor
+- fix browser cache
 = 0.7 =
 - ditambahkan Google Frame Breaker karena Gogle eropa masih menggunakan Layout lama
 - fix header already sent, ada yg lupa kehapus saat proses debug hehe...
