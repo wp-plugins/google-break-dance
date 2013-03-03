@@ -90,7 +90,7 @@ function Google_Image_Dance(){
     gbdWatermark($wImage);
   }
    if(preg_match('/get_image?.*\.(jpe?g|gif|png)$/i',$_SERVER['REQUEST_URI'])){
-  $getImg = str_ireplace('wp2/get_image?','',$_SERVER['REQUEST_URI']);
+  $getImg = str_ireplace('get_image?','',$_SERVER['REQUEST_URI']);
   if(cekpr_image_id(get_site_url().$getImg)){
     $GattachId = get_permalink(cekpr_image_id(get_site_url().$getImg));
     $GoriUrl = get_site_url().$getImg;
