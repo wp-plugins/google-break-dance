@@ -62,8 +62,8 @@ RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
 RewriteRule ^(wp-content.*)$ /get_image?$1 [R=302,L]
 # END Google Break Dance
 </code>
-
-- Klo ingin menambahkan lebih banyak bot yg tidak ingin diredirect ke post atau supaya image di index karena default hanya yg mengandung kata "bot" (Googlebot, Bingbot, dll...) dan yahoo Slurp edit baris <strong>!(.\*bot.\*|slurp)</strong> menjadi seperti <strong>!(.\*bot.\*|slurp|kamu|ente|maneh|anda|lu|sia)</strong>
+* sesuaikan <strong>www.nama-domain-ente.com</strong> dengan domain yg ente punya
+- Klo ingin menambahkan lebih banyak bot yg tidak ingin diredirect ke post atau supaya image di index karena default hanya yg mengandung kata "bot" (Googlebot, Bingbot, dll...) dan yahoo Slurp edit baris <strong>!(.\*bot.\*|slurp)</strong> menjadi seperti <strong>!(.\*bot.\*|slurp|semoga|sukses|dengan|bloggingnya|salam)</strong>
 - Untuk merubah .htaccess melalui Dashboard bisa pake pake plugin GBD Htaccess Editor
 
 
@@ -71,7 +71,7 @@ RewriteRule ^(wp-content.*)$ /get_image?$1 [R=302,L]
 
 
 1. Upload plugin ini`/wp-content/plugins/` directory, atau
-2. Cari dan install di Dashboarf => Plugins => Add new
+2. Cari dan install di Dashboard => Plugins => Add new
 3. Activate
 4. masukan baris text berikut ke <b>.htaccess</b> melalui ftp atau dengan menggunakan plugin htaccess editor <br />
 <code>
