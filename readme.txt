@@ -17,9 +17,9 @@ Saat visitor klik link "Lihat Gambar Asli" di halaman Google search image maka U
 sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling atas file <b>.htaccess</b>  : <br /><br />
 = FITUR =
 - Redirect otomatis gambar ukuran full, medium, smalll ke postingan
-- Menambahkan Watermark dihalaman google image search
+- Menambahkan Watermark dihalaman google image search (<a href="http://wordpress.org/extend/plugins/google-break-dance/screenshots/">lihat</a>)
 - Frame Breaker untuk Google Image Eropa
-- GBD htaccess Editor
+- GBD htaccess Editor ( <a href="http://wordpress.org/extend/plugins/google-break-dance/screenshots/">lihat</a>)
 - Tidak Redirect image ke post jika yg akses adalah BOT (Googlebot, Bingbot, slurp, dll..) sehingga gambar bisa di index oleh Bot.
 - Tidak redirect jika no Referer
 

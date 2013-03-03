@@ -2,7 +2,7 @@
 /*
 Plugin Name: Google Break Dance
 Plugin URI: http://wordpress.org/extend/plugins/google-break-dance/
-Description: Image tidak lagi terindek Google? <a href="http://wordpress.org/extend/plugins/google-break-dance/" target="_blank">EDIT .htaccess menjadi seperti ini</a>. Redirect Visitor dari Google image ke langsung halaman Post, jangan lupa edit file <b>.htaccess</b> sebelum menggunakan Plugin ini. Oh iya klo berguna, kapan2 jgn lupa cendolnya buat <strong><a href="http://www.cekpr.com">cekPR.com</a></strong> heheh...
+Description: Redirect Visitor dari Google image ke langsung halaman Post dan menambahkan watermark di halaman Google Image Search. Oh iya klo berguna, kapan2 jgn lupa cendolnya buat <strong><a href="http://www.cekpr.com">cekPR.com</a></strong> heheh...
 Version: 0.8
 Author: ewwink
 Author URI: http://www.cekpr.com/
