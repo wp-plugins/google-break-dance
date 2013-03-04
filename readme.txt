@@ -13,12 +13,12 @@ Redirect Visitor dari Google images ke langsung halaman Post dengan Plugin Googl
 == Description ==
 Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunitas Publisher Indonesia</a> dan siapapun hahaha....
 
-Saat visitor klik link "Lihat Gambar Asli" di halaman Google search image maka URLnya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
-sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling atas file <b>.htaccess</b>  : <br /><br />
+Saat visitor klik link "Lihat Gambar Asli" di halaman Google image search maka URL gambarnyanya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
+selain itu dengan plugin ini otomatis image di halaman Google image search akan ter-watermark  : <br /><br />
 = FITUR =
 - Redirect otomatis gambar ukuran full, medium, smalll ke postingan
 - Menambahkan Watermark dihalaman google image search (<a href="http://wordpress.org/extend/plugins/google-break-dance/screenshots/">lihat</a>)
-- cache watermark image untuk meminimalkan cpu usage (lokasi: /wp-content/gbd_cache/ )
+- cache watermark image untuk meminimalkan cpu usage (lokasi: /wp-content/gbd_cache)
 - Frame Breaker untuk Google Image Eropa
 - GBD htaccess Editor ( <a href="http://wordpress.org/extend/plugins/google-break-dance/screenshots/">lihat</a>)
 - Tidak Redirect image ke post jika yg akses adalah BOT (Googlebot, Bingbot, slurp, dll..) sehingga gambar bisa di index oleh Bot.
@@ -67,9 +67,21 @@ RewriteRule ^(wp-content.*)$ /get_image?$1 [R=302,L]
 </code>
 * sesuaikan <strong>www.nama-domain-ente.com</strong> dengan domain yg ente punya
 - Klo ingin menambahkan lebih banyak bot yg tidak ingin diredirect ke post atau supaya image di index karena default hanya yg mengandung kata "bot" (Googlebot, Bingbot, dll...) dan yahoo Slurp edit baris <strong>!(.\*bot.\*|slurp)</strong> menjadi seperti <strong>!(.\*bot.\*|slurp|semoga|sukses|dengan|bloggingnya|salam)</strong>
-- Untuk merubah .htaccess melalui Dashboard bisa pake pake plugin GBD Htaccess Editor
+- Untuk merubah .htaccess melalui Dashboard bisa melaui <strong>GBD Htaccess Editor</strong> yg sudah disertakan diplugin ini
 
+= TIPS = 
+Block robot yg tidak mendatangkan trafik tetapi membuat CPU usage dan pemakaian bandwitdh jadi tinggi, tambahkan di Robots.txt
+<code>
+user-agent: AhrefsBot
+disallow: /
 
+user-agent: MJ12bot
+disallow: /
+
+user-agent: Seomozbot
+disallow: /
+
+</code>
 == Installation ==
 
 
