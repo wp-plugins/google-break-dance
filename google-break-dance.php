@@ -3,7 +3,7 @@
 Plugin Name: Google Break Dance
 Plugin URI: http://wordpress.org/extend/plugins/google-break-dance/
 Description: Redirect Visitor dari Google image ke langsung halaman Post dan menambahkan watermark di halaman Google Image Search. Oh iya klo berguna, kapan2 jgn lupa cendolnya buat <strong><a href="http://www.cekpr.com">cekPR.com</a></strong> heheh...
-Version: 0.81
+Version: 0.82
 Author: ewwink
 Author URI: http://www.cekpr.com/
 License: GPL2
@@ -42,77 +42,87 @@ function GID_not_found($title){
   $title = "Image / Media Not Found, Redirecting to original location.....";
   return $title;
 }
+function getMime($m){
+  $n = getimagesize($m);
+  $mime = $n['mime'];
+  switch ($mime){
+  case "image/jpeg":    $mimeType = 'jpeg'; break;
+  case "image/gif":     $mimeType = 'gif';  break;
+  case "image/png":     $mimeType = 'png';  break;
+  default:              $mimeType = "jpeg";
+  }
+  return $mimeType;
+}
+function getHeader($header){
+  $headeData = array();
+  $headeData[] = header("content-type: image/$header");
+  $headeData[] = header("Expires: 1 Jan 1990 00:00:00 GMT");
+  $headeData[] = header("Pragma: no-cache");
+  $headeData[] = header("Cache-control: no-cache");
+  $headeData[] = header("Cache-control: no-store");
+  $headeData[] = header("Cache-control: max-age=0, must-revalidate");
+  $headeData[] = header("Cache-control: pre-check=0,post-check=0", false);
+  return $headeData;
+}
 function gbdWatermark($fn){
-  $m = getimagesize($fn);
-  $mime = $m['mime'];
   $watermark = imagecreatefrompng(dirname(__FILE__).'/w.png');
   list($w, $h) = getimagesize($fn);
-
-  switch ($mime){
-  case "image/jpeg":    $type = 'jpeg'; break;
-  case "image/gif":     $type = 'gif';  break;
-  case "image/png":     $type = 'png';  break;
-  default:              $type = "jpeg";
-  }
+  $type = getMime($fn);
   $imageFrom = 'imagecreatefrom'.$type;
   $thumb = $imageFrom($fn)
   or die('Cannot Initialize new GD image stream');
-
-
   $createIM = 'imagecreatefrom'.$type;
   $readIM =  'image'.$type;
   $source = $createIM($fn);
   $newFN = basename($fn);
   $wmark = $createIM($fn);
-  header("content-type: image/$type");
-  header("Expires: 1 Jan 1990 00:00:00 GMT");
-  header("Pragma: no-cache");
-  header("Cache-control: no-cache");
-  header("Cache-control: no-store");
-  header("Cache-control: max-age=0, must-revalidate");
-  header("Cache-control: pre-check=0,post-check=0", false);
+  getHeader($type);
   imagecopyresampled($wmark, $watermark, 0, 0, 0, 0, $w, $h, 400, 400);
   imagecopymerge($thumb, $wmark, 0, 0, 0, 0, $w, $h, 60);
-  //$readIM($thumb,ABSPATH.'wp-content/gbd_cache/'.basename($fn));
-  $readIM($thumb);
+  $readIM($thumb,ABSPATH.'wp-content/gbd_cache/'.$newFN,60);
+  readfile(ABSPATH.'wp-content/gbd_cache/'.$newFN);
   imagedestroy($thumb);
   imagedestroy($wmark);
   imagedestroy($watermark);
- exit;
-  //readfile(ABSPATH.'wp-content/gbd_cache/'.basename($fn));
-
+  exit;
 }
 
 function Google_Image_Dance(){
   if(preg_match('/gbd_watermark\?.*\.(jpe?g|gif|png)$/i',$_SERVER['REQUEST_URI'])){
     if (!is_dir(ABSPATH.'wp-content/gbd_cache')){mkdir((ABSPATH.'wp-content/gbd_cache'));}
     $wImage =  ABSPATH.str_ireplace('/gbd_watermark?','',$_SERVER['REQUEST_URI']);
+    if (file_exists(ABSPATH.'wp-content/gbd_cache/'.basename($wImage))){
+      $type = getMime(ABSPATH.'wp-content/gbd_cache/'.basename($wImage));
+      getHeader($type);
+      readfile(ABSPATH.'wp-content/gbd_cache/'.basename($wImage));
+      exit;
+    }
     gbdWatermark($wImage);
   }
    if(preg_match('/get_image?.*\.(jpe?g|gif|png)$/i',$_SERVER['REQUEST_URI'])){
-  $getImg = str_ireplace('get_image?','',$_SERVER['REQUEST_URI']);
-  if(cekpr_image_id(get_site_url().$getImg)){
-    $GattachId = get_permalink(cekpr_image_id(get_site_url().$getImg));
-    $GoriUrl = get_site_url().$getImg;
-    $GpId = cekpr_image_id(get_site_url().$getImg);
-    $GaUrl = get_post($GpId);
-    $GPostId = get_permalink($GaUrl->post_parent);
-    if($GPostId){
-      header("HTTP/1.1 301 Moved Permanently");
-      header("Location: $GPostId");
-      exit;
+     $getImg = str_ireplace('get_image?','',$_SERVER['REQUEST_URI']);
+     if(cekpr_image_id(get_site_url().$getImg)){
+     $GattachId = get_permalink(cekpr_image_id(get_site_url().$getImg));
+     $GoriUrl = get_site_url().$getImg;
+     $GpId = cekpr_image_id(get_site_url().$getImg);
+     $GaUrl = get_post($GpId);
+     $GPostId = get_permalink($GaUrl->post_parent);
+       if($GPostId){
+         header("HTTP/1.1 301 Moved Permanently");
+         header("Location: $GPostId");
+         exit;
+       }
+       if($GattachId){
+         header("HTTP/1.1 301 Moved Permanently");
+         header("Location: $GattachId");
+         exit;
+       }
+     }
+    else{
+      add_filter('wp_title', 'GID_not_found');
+      meta_redir();
     }
-    if($GattachId){
-      header("HTTP/1.1 301 Moved Permanently");
-      header("Location: $GattachId");
-      exit;
-      }
   }
-  else{
-    add_filter('wp_title', 'GID_not_found');
-    meta_redir();
-  }
-}
 }
 function gbd_create_menu() {
   add_menu_page('GBD htaccess Editor', 'GBD htaccess Editor', 'administrator', __FILE__, 'gbd_editor', '');
@@ -139,8 +149,8 @@ function gbd_activate(){
 register_activation_hook( __FILE__, 'gbd_activate' );
 
 function add_htaccess($rule) {
-    $htaccess_file = ABSPATH.'.htaccess';
-    return insert_with_markers($htaccess_file, 'Google Break Dance', (array) $rule);
+  $htaccess_file = ABSPATH.'.htaccess';
+  return insert_with_markers($htaccess_file, 'Google Break Dance', (array) $rule);
 }
 
 register_deactivation_hook( __FILE__, 'gbd_deactivate' );

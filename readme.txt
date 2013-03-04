@@ -18,12 +18,15 @@ sebelum menginstall plugin ini jangan lupa  masukan baris text berikut ke paling
 = FITUR =
 - Redirect otomatis gambar ukuran full, medium, smalll ke postingan
 - Menambahkan Watermark dihalaman google image search (<a href="http://wordpress.org/extend/plugins/google-break-dance/screenshots/">lihat</a>)
+- cache watermark image untuk meminimalkan cpu usage (lokasi: /wp-content/gbd-cache/ )
 - Frame Breaker untuk Google Image Eropa
 - GBD htaccess Editor ( <a href="http://wordpress.org/extend/plugins/google-break-dance/screenshots/">lihat</a>)
 - Tidak Redirect image ke post jika yg akses adalah BOT (Googlebot, Bingbot, slurp, dll..) sehingga gambar bisa di index oleh Bot.
 - Tidak redirect jika no Referer
 
 = Perubahan terakhir =
+= 0.82 =
+- Penambahan cache watermark image untuk meminimalkan cpu usage
 = 0.8 =
 - fitur baru, watermark dihalaman google image search
 - Auto edit htaccess saat diaktifkan
@@ -115,6 +118,8 @@ di Google search ketik "<b>site:domain-punya-ente.com</b>" (tanpa tanda kutip) t
 ganti semua filenya dengan yg terbaru.
 
 == Changelog ==
+= 0.82 =
+- Penambahan cache untuk image watermark untuk meminimalkan cpu usage
 = 0.8 =
 - fitur baru, watermark dihalaman google image search
 - Auto edit htaccess saat diaktifkan
