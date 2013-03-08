@@ -183,6 +183,8 @@ function gbd_activate(){
   $rules = array();
   $rules[] = 'RewriteEngine on';
   $rules[] = 'RewriteBase /';
+  $rules[] = '';
+  $rules[] = '### Awal Watermark ###';
   $rules[] = 'RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]';
   $rules[] = 'RewriteCond %{HTTP_REFERER} .*/blank.html$ [NC,OR]';
   $rules[] = 'RewriteCond %{HTTP_REFERER} .*images.search.yahoo.com/.*$ [NC]';
@@ -190,7 +192,9 @@ function gbd_activate(){
   $rules[] = '#RewriteCond %{HTTP_REFERER} !^'.site_url().'/.*$ [NC]';
   $rules[] = 'RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]';
   $rules[] = 'RewriteRule ^(wp-content.*)$ /gbd_watermark?$1 [R=302,L]';
+  $rules[] = '### Akhir Watermark ###';
   $rules[] = '';
+  $rules[] = '### Awal Redirect ###';
   $rules[] = 'RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]';
   $rules[] = 'RewriteCond %{HTTP_REFERER} ^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/url\?.*$ [NC,OR]';
   $rules[] = 'RewriteCond %{HTTP_REFERER} ^http://www.bing.com/images/search?q=\?.*$ [NC]';
@@ -198,6 +202,7 @@ function gbd_activate(){
   $rules[] = '#RewriteCond %{HTTP_REFERER} !^'.site_url().'/.*$ [NC]';
   $rules[] = 'RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]';
   $rules[] = 'RewriteRule ^(wp-content.*)$ /get_posturl?$1 [R=302,L]';
+  $rules[] = '### Awal Redirect ###';
 
   add_htaccess($rules);
   }
