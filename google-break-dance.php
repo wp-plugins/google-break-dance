@@ -3,7 +3,7 @@
 Plugin Name: Google Break Dance
 Plugin URI: http://wordpress.org/extend/plugins/google-break-dance/
 Description: Redirect Visitor dari Google image ke langsung halaman Post dan menambahkan watermark di halaman Google Image Search. klo berguna, kapan2 jgn lupa cendolnya buat <strong><a href="http://www.cekpr.com">cekPR.com</a></strong> heheh...
-Version: 0.90
+Version: 0.91
 Author: ewwink
 Author URI: http://www.cekpr.com/
 License: GPL2

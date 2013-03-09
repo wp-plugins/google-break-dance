@@ -13,6 +13,9 @@ Redirect Visitor dari Google images ke langsung halaman Post dengan Plugin Googl
 == Description ==
 Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunitas Publisher Indonesia</a> dan siapapun hahaha....
 
+= upgrade ke versi 0.91 =
+di htaccess ubah <strong>get_image</strong> jadi <strong>get_posturl</strong>
+
 Redirect visitor saat link "Lihat Gambar Asli" di halaman Google image search maka URL gambarnya akan dialihkan / Redirect langsung halaman Post dimana image tersebut berada.
 selain itu dengan plugin ini otomatis image di halaman Google image search akan ter-watermark  : <br /><br />
 = FITUR =
@@ -60,7 +63,7 @@ RewriteCond %{HTTP_REFERER} ^http://www.bing.com/images/search?q=\?.*$ [NC]
 #RewriteCond %{HTTP_REFERER} ^$ [NC]
 #RewriteCond %{HTTP_REFERER} !^http://www.nama-domain-ente.com/.*$ [NC]
 RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
-RewriteRule ^(wp-content.*)$ /get_image?$1 [R=302,L]
+RewriteRule ^(wp-content.*)$ /get_posturl?$1 [R=302,L]
 ### Akhir Redirect ###
 
 # END Google Break Dance
@@ -100,7 +103,7 @@ RewriteCond %{HTTP_REFERER} ^http://www.bing.com/images/search?q=\?.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^$ [NC]
 #RewriteCond %{HTTP_REFERER} !^http://www.nama-domain-ente.com/.*$ [NC]
 RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
-RewriteRule ^(wp-content.*)$ /get_image?$1 [R=302,L]
+RewriteRule ^(wp-content.*)$ /get_posturl?$1 [R=302,L]
 ### Akhir Redirect ###
 
 # END Google Break Dance
@@ -135,7 +138,7 @@ RewriteCond %{HTTP_REFERER} ^http://www.bing.com/images/search?q=\?.*$ [NC,OR]
 #RewriteCond %{HTTP_REFERER} ^$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.nama-domain-ente.com/.*$ [NC]
 RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
-RewriteRule ^(wp-content.*)$ /get_image?$1 [R=302,L]
+RewriteRule ^(wp-content.*)$ /get_posturl?$1 [R=302,L]
 ### Akhir Redirect ###
 
 # END Google Break Dance
@@ -171,6 +174,8 @@ disallow: /
 </code>
 
 = Perubahan terakhir =
+= 0.91 =
+salah ketik di htaccess di readme.txt, ubah <strong>get_image</strong> jadi <strong>get_posturl</strong>
 = 0.90 =
 - penambahan halaman GBD Settings
 - tambahan custom text watermark
@@ -199,7 +204,7 @@ RewriteCond %{HTTP_USER_AGENT} !(.*bot.*|slurp) [NC]
 RewriteCond %{HTTP_REFERER} !^$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/blank.html$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://(www.)?cekpr.com/.*$ [NC]
-RewriteRule ^(.*)$ /get_image?$1 [R=302,L]
+RewriteRule ^(.*)$ /get_posturl?$1 [R=302,L]
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
@@ -235,6 +240,8 @@ ganti semua filenya dengan yg terbaru.
 
 == Changelog ==
 = Perubahan terakhir =
+= 0.91 =
+salah ketik di htaccess di readme.txt, ubah <strong>get_image</strong> jadi <strong>get_posturl</strong>
 = 0.90 =
 - penambahan halaman GBD Settings
 - tambahan custom text watermark
