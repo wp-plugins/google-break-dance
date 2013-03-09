@@ -175,7 +175,7 @@ disallow: /
 
 = Perubahan terakhir =
 = 0.91 =
-salah ketik di htaccess di readme.txt, ubah <strong>get_image</strong> jadi <strong>get_posturl</strong>
+salah ketik di readme.txt, di htaccess ubah <strong>get_image</strong> jadi <strong>get_posturl</strong>
 = 0.90 =
 - penambahan halaman GBD Settings
 - tambahan custom text watermark
