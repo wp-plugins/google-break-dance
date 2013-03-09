@@ -39,6 +39,9 @@ Pada versi 0.90 default konfigurasi .htaccess untuk meminimalkan penggunaan CPU 
 
 untuk penggunaan lainnya konfigurasi .htacess lainnya bisa lihat dibawah
 
+= Pengguna Nginx Server =
+Convert .htaccess ke konfigurasi Nginx lewat www.anilcetin.com/convert-apache-htaccess-to-nginx/
+
 = Instruksi singkat =
 - Tidak perlu lagi mengedit file .htaccess karena sudah otomatis akan tetapi jika sudah pernah edit .htaccess sebelumnya maka pastikan harus seperti dibawah (default)
 <code>
