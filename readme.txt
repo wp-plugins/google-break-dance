@@ -50,7 +50,7 @@ RewriteEngine on
 RewriteBase /
 
 ### Awal Watermark ###
-RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_REFERER} .*/blank.html$ [NC,OR]
 RewriteCond %{HTTP_REFERER} .*images.search.yahoo.com/.*$ [NC]
 #RewriteCond %{HTTP_REFERER} ^$ [NC]
@@ -60,7 +60,7 @@ RewriteRule ^(wp-content.*)$ /gbd_watermark?$1 [R=302,L]
 ### Akhir Watermark ###
 
 ### Awal Redirect ###
-RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_REFERER} ^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/url\?.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://www.bing.com/images/search?q=\?.*$ [NC]
 #RewriteCond %{HTTP_REFERER} ^$ [NC]
@@ -90,7 +90,7 @@ RewriteEngine on
 RewriteBase /
 
 ### Awal Watermark ###
-RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_REFERER} .*/blank.html$ [NC,OR]
 RewriteCond %{HTTP_REFERER} .*images.search.yahoo.com/.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} !^http://www.nama-domain-ente.com/.*$ [NC]
@@ -99,7 +99,7 @@ RewriteRule ^(wp-content.*)$ /gbd_watermark?$1 [R=302,L]
 ### Akhir Watermark ###
 
 ### Awal Redirect ###
-RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_REFERER} ^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/url\?.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://www.bing.com/images/search?q=\?.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^$ [NC]
@@ -123,7 +123,7 @@ RewriteEngine on
 RewriteBase /
 
 ### Awal Watermark ###
-RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_REFERER} .*/blank.html$ [NC,OR]
 RewriteCond %{HTTP_REFERER} .*images.search.yahoo.com/.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^$ [NC]
@@ -132,7 +132,7 @@ RewriteRule ^(wp-content.*)$ /gbd_watermark?$1 [R=302,L]
 ### Akhir Watermark ###
 
 ### Awal Redirect ###
-RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_REFERER} ^http://www.google.[a-z]{2,4}(.[a-z]{2,4})?/url\?.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://www.bing.com/images/search?q=\?.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} !^http://www.nama-domain-ente.com/.*$ [NC]
@@ -147,7 +147,7 @@ RewriteRule ^(wp-content.*)$ /get_posturl?$1 [R=302,L]
 - tambahkan watermark jika referer dari pinterest
 <code>
 ### Awal Watermark ###
-RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|png)$ [NC]
+RewriteCond %{REQUEST_URI} wp-content/uploads/.*\.(gif|jpg|jpeg|png)$ [NC]
 RewriteCond %{HTTP_REFERER} .*/blank.html$ [NC,OR]
 RewriteCond %{HTTP_REFERER} .*images.search.yahoo.com/.*$ [NC,OR]
 RewriteCond %{HTTP_REFERER} .*pinterest.*$ [NC]
