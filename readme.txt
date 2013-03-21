@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: ewwink
-Donate link: http://www.prpagerank.com/
+Donate link: http://goo.gl/1zeKU
 Tags: redirect,google,image,frame,frame breaker,redirect google image
 Requires at least: 3.0.1
 Tested up to: 3.5.1
