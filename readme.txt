@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Redirect Visitor dari Google images ke langsung halaman Post dengan Plugin Google Break Dance.
 
 == Description ==
-Plugin ini spesial pake pake telor buat <a href="http://ads.id">Komunitas Publisher Indonesia</a> dan siapapun hahaha....
+Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunitas Publisher Indonesia</a> dan siapapun hahaha....
 
 = upgrade ke versi 0.91 =
 di htaccess ubah <strong>get_image</strong> jadi <strong>get_posturl</strong>
@@ -44,6 +44,9 @@ Convert .htaccess ke konfigurasi Nginx lewat www.anilcetin.com/convert-apache-ht
 
 = Instruksi singkat =
 - Tidak perlu lagi mengedit file .htaccess karena sudah otomatis akan tetapi jika sudah pernah edit .htaccess sebelumnya maka pastikan harus seperti dibawah (default)
+
+plugin by <a href="http://www.cekpr.com">check pagerank</a>
+
 <code>
 # BEGIN Google Break Dance
 RewriteEngine on
@@ -220,7 +223,6 @@ RewriteRule . /index.php [L]
 - ganti <strong>cekpr.com<strong> dengan nama domain ente
 
 
-plugin by <a href="http://www.cekpr.com">check pagerank</a>
 
 == Frequently Asked Questions ==
 
