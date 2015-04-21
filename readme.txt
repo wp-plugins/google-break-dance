@@ -3,7 +3,7 @@ Contributors: ewwink
 Donate link: http://goo.gl/1zeKU
 Tags: redirect,google,image,frame,frame breaker,redirect google image
 Requires at least: 3.0.1
-Tested up to: 3.5.1
+Tested up to: 4.2
 Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Redirect Visitor dari Google images ke langsung halaman Post dengan Plugin Google Break Dance.
 
 == Description ==
-Plugin ini spesial pake pake telor buat <a href="http://www.ads-id.com">Komunitas Publisher Indonesia</a> dan siapapun hahaha....
+Plugin ini spesial pake pake telor buat <a href="http://ads.id">Komunitas Publisher Indonesia</a> dan siapapun hahaha....
 
 = upgrade ke versi 0.91 =
 di htaccess ubah <strong>get_image</strong> jadi <strong>get_posturl</strong>
@@ -220,6 +220,7 @@ RewriteRule . /index.php [L]
 - ganti <strong>cekpr.com<strong> dengan nama domain ente
 
 
+plugin by <a href="http://www.cekpr.com">check pagerank</a>
 
 == Frequently Asked Questions ==
 
